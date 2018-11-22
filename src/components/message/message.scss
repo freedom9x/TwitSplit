@@ -1,0 +1,49 @@
+$tweeter-primary-color: #1da1f2;
+$message-border-color: #d4d3d3;
+
+.message-create {
+  background-color: #E8F5FD;
+  padding: 30px;
+}
+.message-input-container {
+  display: flex;
+  flex-direction: column;
+
+  .message-submit {
+    align-self: flex-end;
+    font-size: 1.3em;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: $tweeter-primary-color;
+    outline: none;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .message-input {
+    border-radius: 20px;
+    padding: 10px;
+    border-color: #a8cde4;
+    margin-bottom: 10px;
+    resize: none;
+    outline: none;
+    border-width: 2px;
+
+    &:focus {
+      border-color: $tweeter-primary-color;
+    }
+  }
+}
+
+.messages-list {
+  background-color: white;
+
+  .tweeter-message {
+    padding: 20px 30px;
+    border-top: 1px solid $message-border-color;
+    border-bottom: 1px solid $message-border-color;
+  }
+}
