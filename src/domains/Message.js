@@ -1,3 +1,6 @@
 // @flow
 
-export type Message = string
+export type MessageType = {
+  value: string,
+  groupId: number
+}
