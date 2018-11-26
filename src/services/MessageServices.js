@@ -1,14 +1,13 @@
 // @flow
-import Message from  './../domains/Message'
 
-export const isValidMessage = (msg: Message, maxLength: number): boolean => {
+export const isValidMessage = (msg: string, maxLength: number): boolean => {
   if(msg.length > maxLength && !msg.trim().includes(' ')){
     return false
   }
   return true
 }
 
-export const splitMessageWithIndicator = (msg: Message, indicator: string, maxLength: number) =>{
+export const splitMessageWithIndicator = (msg: string, indicator: string, maxLength: number) =>{
 
   if((indicator+msg).length <= maxLength){
     //indicator + msg is not greater than maxLength
@@ -26,7 +25,7 @@ export const splitMessageWithIndicator = (msg: Message, indicator: string, maxLe
   return [msg, msg]
 }
 
-export const splitMessageWithParts = (msg: Message, parts: number, maxLength: number) => {
+export const splitMessageWithParts = (msg: string, parts: number, maxLength: number) => {
   let message = msg,  msgs = []
   let index =0 ,indicator = `${index}/${parts} `
   let chunk='',  remaining = message
@@ -51,7 +50,7 @@ export const splitMessageWithParts = (msg: Message, parts: number, maxLength: nu
   return []
 }
 
-export const splitMessage = (msg, maxLength) => {
+export const splitMessage = (msg: string, maxLength: number) => {
   let msgs = []
   let l = msg.length
   if(l <= maxLength){
