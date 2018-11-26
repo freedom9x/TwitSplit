@@ -1,5 +1,7 @@
 $tweeter-primary-color: #1da1f2;
 $message-border-color: #d4d3d3;
+$message-input-error-color: red;
+$message-event-color: #b3d9ec;
 
 .message-create {
   background-color: #E8F5FD;
@@ -45,5 +47,13 @@ $message-border-color: #d4d3d3;
     padding: 20px 30px;
     border-top: 1px solid $message-border-color;
     border-bottom: 1px solid $message-border-color;
+
+    &.even{
+      background-color: $message-event-color;
+    }
   }
+}
+
+.err-input-message {
+  color: $message-input-error-color;
 }

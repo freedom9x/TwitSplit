@@ -1,7 +1,15 @@
+// @flow
+
 import React from 'react';
 import './message.scss'
 
-const MessageCreateInput = (props) =>(
+type Props = {
+  value: string,
+  updateInput: (value: string) => void,
+  addMessage: (newMessage: string) => void,
+}
+
+const MessageCreateInput = (props: Props) =>(
   <div className="message-create">
     <form className="message-input-container">
       <textarea className="message-input"

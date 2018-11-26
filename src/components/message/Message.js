@@ -1,16 +1,19 @@
+// @flow
 import React from 'react'
 
-class Message extends React.PureComponent{
+type Props = {
+  value: string,
+  groupId: number,
+}
 
-  constructor(props){
-    super()
-  }
+class Message extends React.PureComponent<Props>{
 
   render(){
-    const {message} = this.props
+    const {value, groupId} = this.props
+
     return (
-      <div className="tweeter-message">
-        {message}
+      <div className={`tweeter-message ${groupId % 2 === 0? 'even': 'odd'}`}>
+        {value}
       </div>
     )
   }
