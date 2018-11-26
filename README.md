@@ -1,44 +1,57 @@
+
+# TwitSplit
+## Description
+- The product Tweeter allows users to post short messages limited to 50
+characters each.
+- Sometimes, users get excited and write messages longer than 50 characters.
+- Instead of rejecting these messages, we would like to add a new feature that will
+split the message into parts and send multiple messages on the user's behalf,
+all of them meeting the 50 character requirement.
+
+## Architecture
+- App build like a Single Page Application, with 3 Layers: 
+  1. View (React components)
+  2. Application Services (Message Services)
+  3. Domain (Message domain)
+- App's layout has 4 UI components: header(top), leftColum(left), message area(center), rightColumn(right):
+
+![layout](https://user-images.githubusercontent.com/5037791/49032722-e6fad780-f1df-11e8-88cd-6b275dc223ed.png)
+
+## Spliting Message Algorithm
+
+## Following steps:
+1. Set l to message length, msgs to []
+2. If l <= maxLength return message. Then go to step 7
+3. Set i to l/maxLength
+4. Try slipt message into i parts,save them into msgs. If success then go to step 7
+5. Set i = i + 1
+6. If i < l then go to step 4 
+7. Return msgs
+
+## Algorithm in step 4: Split message to i parts 
+1. Set index to 0, indicator to "index/i", remaining to message, msgs to []
+2. if remaining.length <= 0 then go to step 8
+3. Set index = index + 1, indicator to "index/1"
+4. Split remaining into 2 parts
+5. Find the longest valid message in remaining, if fail then go to step 7
+6. Push the valid message to msgs,then set remaining = "(remaining - first part)", then go to step 2
+7. Return []
+8. Return msgs
+
+
+## How to start project in developer mode
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+In the project directory:
 
-In the project directory, you can run:
+1. install all dependencies 
 
-### `npm start`
+     `yarn`
+2. Start app in localhost
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+     `yarn start`
+     
+2. Run unit tests
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+     `yarn test`
