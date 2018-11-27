@@ -8,6 +8,8 @@ characters each.
 split the message into parts and send multiple messages on the user's behalf,
 all of them meeting the 50 character requirement.
 
+### Demo: https://demoproject-223803.appspot.com/
+
 ## Architecture
 - App build like a Single Page Application, with 3 Layers: 
   1. View (React components)
